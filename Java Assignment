@@ -1,0 +1,370 @@
+Assignmnet 1: Data types, operators, if else constructs
+
+import java.util.Scanner;
+
+public class ElectricityBill {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("WELCOME TO ELECTRIC BILL CALCULATOR");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number of units: ");
+		int unit = sc.nextInt();
+		System.out.println("Calculating amount...");
+		double amt = calculateBill(unit);
+		
+		System.out.println("The Electric bill amount is Rs "+ amt );
+		
+		sc.close();
+		
+	}
+	
+	public static double calculateBill(int unit) {
+		
+		double amount;
+		double stdPrice= 1.2;
+		int remUnit = 0;
+				
+		if(unit<=100) {
+			amount = unit*stdPrice;
+		}
+		
+		else if(unit>100 && unit<=300) {
+			
+			remUnit= unit-100;
+			amount = remUnit*2 + 100*stdPrice;
+		}
+		
+		else
+		{	
+			remUnit = unit-300;
+			amount = remUnit*3 + 200*2 + 100*stdPrice;
+		}
+		
+		return amount;
+	}
+
+}
+
+
+
+Assignment 2 & 3: Loops and Arrays
+
+import java.util.*;
+
+
+
+public class CricketMatch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int[] scoreArray = new int[30];
+		//Random rand = new Random();
+		 
+		 for(int i=0; i< scoreArray.length ; i++) {
+			 
+			 scoreArray[i] = (int)(Math.random()*7);
+			 
+			 System.out.println(scoreArray[i]);
+		 }
+		 
+		 System.out.println("=================TOTAL RUNS====================");
+		 
+		 int totalRuns = 0;
+		 
+		 for(int i=0; i< scoreArray.length; i++) {
+			 
+			 totalRuns = totalRuns + scoreArray[i];
+		 }
+		 
+		 System.out.println("The total number of runs scored are: "+ totalRuns);
+		 
+		 System.out.println("=================NUMBER OF 0s, 1s, 2s, 3s, 4s, 6s====================");
+		 
+		 int zeroNo = 0;
+		 int oneNo = 0;
+		 int twoNo = 0;
+		 int threeNo = 0;
+		 int fourNo = 0;
+		 int sixNo = 0;
+		 
+		 for(int j=0; j<scoreArray.length; j++) {
+			 
+			 if(scoreArray[j]==0) {
+				 
+				 zeroNo=zeroNo+1;
+			 }
+			 
+			 else if (scoreArray[j]==1) {
+				 
+				 oneNo= oneNo+1;
+			 }
+			 
+			 else if(scoreArray[j]== 2) {
+				 
+				 twoNo = twoNo+1;
+			 }
+			 
+             else if(scoreArray[j]== 3) {
+				 
+				 threeNo = threeNo+1;
+			 }
+			 
+             else if(scoreArray[j]== 4) {
+	 
+	              fourNo = fourNo+1;
+	              
+             }
+			 
+             else if(scoreArray[j]== 6) {
+	 
+	              sixNo = sixNo+1;
+             }
+			 
+			 
+		 }
+		 
+		 System.out.println("No. of 0s are: "+ zeroNo);
+		 System.out.println("No. of 1s are: "+ oneNo);
+		 System.out.println("No. of 2s are: "+ twoNo);
+		 System.out.println("No. of 3s are: "+ threeNo);
+		 System.out.println("No. of 4s are: "+ fourNo);
+		 System.out.println("No. of 6s are: "+ sixNo);
+		 
+		 System.out.println("=================STRIKE RATE====================");
+		 
+		 double strikeRate = (totalRuns/scoreArray.length)*100;
+		 
+		 System.out.println("Strike rate is: "+ strikeRate);
+		 
+		 System.out.println("======================LAST 5 INNINGS DETAILS=======================");
+		 
+		 Assignment3 last = new Assignment3();
+		 int lastruns = last.lastTotalRuns();
+		 
+         System.out.println("=================TOTAL RUNS IN LAST 5 INNINGS====================");
+		 
+		 System.out.println("The total number of runs in last 5 inings are: "+ lastruns);
+		 
+		 System.out.println("=================AVERAGE SCORE IN LAST 5 INNINGS====================");
+		 
+		 float average = lastruns/5;
+		 
+		 System.out.println("The average score is: "+ average);
+		 
+         System.out.println("=================STRIKE RATE IN LAST 5 INNINGS====================");
+		 
+		 double strikeRate1 = (lastruns/150)*100;
+		 
+		 System.out.println("Strike rate is: "+ strikeRate1);
+		 
+		 
+		 
+		 
+		 
+	}
+	
+}
+
+class Assignment3 {
+	
+	public int lastTotalRuns() {
+		
+		int[] scoreArray1 = new int[150]; 
+		 
+		for(int i=0; i< scoreArray1.length ; i++) {
+			
+			scoreArray1[i] = (int)(Math.random()*7);
+			System.out.println(scoreArray1[i]);
+			
+		 }
+		
+		int totalRuns1 = 0;
+		 
+		 for(int i=0; i< scoreArray1.length; i++) {
+			 
+			 totalRuns1 = totalRuns1 + scoreArray1[i];
+		 }
+		 
+		 //return totalRuns1;
+		  
+		
+         System.out.println("=================NUMBER OF 0s, 1s, 2s, 3s, 4s, 6s====================");
+		 
+		 int zeroNo = 0;
+		 int oneNo = 0;
+		 int twoNo = 0;
+		 int threeNo = 0;
+		 int fourNo = 0;
+		 int sixNo = 0;
+		 
+		 for(int j=0; j<scoreArray1.length; j++) {
+			 
+			 if(scoreArray1[j]==0) {
+				 
+				 zeroNo=zeroNo+1;
+			 }
+			 
+			 else if (scoreArray1[j]==1) {
+				 
+				 oneNo= oneNo+1;
+			 }
+			 
+			 else if(scoreArray1[j]== 2) {
+				 
+				 twoNo = twoNo+1;
+			 }
+			 
+             else if(scoreArray1[j]== 3) {
+				 
+				 threeNo = threeNo+1;
+			 }
+			 
+             else if(scoreArray1[j]== 4) {
+	 
+	              fourNo = fourNo+1;
+	              
+             }
+			 
+             else if(scoreArray1[j]== 6) {
+	 
+	              sixNo = sixNo+1;
+             }
+			 
+			 
+		 }
+		 
+		 System.out.println("No. of 0s are: "+ zeroNo);
+		 System.out.println("No. of 1s are: "+ oneNo);
+		 System.out.println("No. of 2s are: "+ twoNo);
+		 System.out.println("No. of 3s are: "+ threeNo);
+		 System.out.println("No. of 4s are: "+ fourNo);
+		 System.out.println("No. of 6s are: "+ sixNo);
+		
+		 return totalRuns1;
+	}
+	
+	
+}
+
+
+Assignment 5 and Assignment 1 of Day2: Classes, objects, constructors, getters & setters, Inheritance
+
+public class BankAccount {
+
+
+	public static void main(String[] args) {
+		
+		System.out.println("WELCOME TO MY BANK!");
+		
+		Account acc = new Account();
+		
+		acc.setAccountNo(12340);
+		acc.setAccountBalance(50000);
+		acc.setAccountPassword("3960*&#sona@");
+		acc.bankName("State bank of India");
+		System.out.println("DISPLAYING ACCOUNT INFO...");
+		
+		acc.displayAccount();
+		
+		SavingsAccount sa = new SavingsAccount();
+		sa.minimumBalance= 3000;
+		sa.displayAccount();
+		//sa.displayAccount();
+		
+		CurrentAccount ca = new CurrentAccount();
+		ca.overdraftLimitAmount = 1000000;
+		ca.displayAccount();
+		//ca.displayAccount();
+		
+	}
+
+}
+
+class Account{
+	
+	private int accountNo;
+	private float accountBalance;
+	private String accountPassword;
+	static String bankName;
+	
+	Account() {
+		// TODO Auto-generated constructor stub
+		//System.out.println("This is the default constructor...");
+	}
+	
+	Account(int accountNo, float accountBalance, String accountPassword, String bankName ){
+		
+		
+		this.accountNo = accountNo;
+		this.accountBalance = accountBalance;
+		this.accountPassword = accountPassword;
+		Account.bankName = bankName;
+		
+	}
+
+	public int getAccountNo() {
+		return accountNo;
+	}
+
+	public void setAccountNo(int accountNo) {
+		this.accountNo = accountNo;
+	}
+
+	public float getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(float accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+
+	public String getAccountPassword() {
+		return accountPassword;
+	}
+
+	public void setAccountPassword(String accountPassword) {
+		this.accountPassword = accountPassword;
+	}
+	
+	public void bankName(String bankName) {
+		
+		Account.bankName = bankName;
+	}
+	
+	public void displayAccount() {
+		
+		System.out.println("The bank account no. is: "+ accountNo);
+		System.out.println("The bank account balance is: "+ accountBalance);
+		System.out.println("The bank account password is: "+ accountPassword);
+		System.out.println("The bank name is: "+ bankName);
+		
+	}
+	
+}
+
+
+class SavingsAccount extends Account{
+	
+	double minimumBalance;
+	
+	public void displayAccount() {
+		
+		System.out.println("The minimumBalance is: "+ minimumBalance);
+	}
+}
+
+class CurrentAccount extends Account{
+	
+	double overdraftLimitAmount;
+	
+	public void displayAccount() {
+		
+		System.out.println("The over-draft limit amount is: "+ overdraftLimitAmount);
+	}
+	
+}
+
+
+
